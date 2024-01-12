@@ -44,5 +44,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	pool.suspend();
+
+	return 0;
 }
 ```
