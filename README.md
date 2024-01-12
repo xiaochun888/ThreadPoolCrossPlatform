@@ -1,6 +1,6 @@
 # Thread pool cross platform
  A enough simple and cross-platform thread pool for C++.
- It is enough to copy le folder Sources into your application. 
+ It is enough to copy le folder ThreadPoolCrossPlatform/SimpleThreadPool/Sources into your application. 
  
 ## Main features:
 
