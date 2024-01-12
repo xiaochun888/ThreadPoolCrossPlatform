@@ -12,19 +12,21 @@ It is designed for user to easily modify so as to integrate into your project.
 
 The below code snippet demonstrates the least amount of code to write an multi-threads console application: 
 ```
-		ThreadPool pool(10);
+int _tmain(int argc, _TCHAR* argv[])
+{
+	ThreadPool pool(10);
 
-		int data[20];
-		for(int i = 0; i < 20; i++){
-			data[i] = i;
+	int data[20];
+	for(int i = 0; i < 20; i++){
+		data[i] = i;
 
-			ThreadWorker::Task task;
-			task.args = &data[i];
-			task.proc = print;
+		ThreadWorker::Task task;
+		task.args = &data[i];
+		task.proc = print;
 
-			pool.load(task);
-		}
+		pool.load(task);
+	}
 
-		pool.suspend();
-
+	pool.suspend();
+}
 ```
