@@ -1,5 +1,6 @@
 # Thread pool cross platform
  A enough simple and cross-platform thread pool for C++.
+ It is enough to copy le folder Sources into your application. 
  
 ## Main features:
 
@@ -10,8 +11,23 @@ It is designed for user to easily modify so as to integrate into your project.
 
 ## A minimal example:
 
-The below code snippet demonstrates the least amount of code to write an multi-threads console application: 
+The below code snippet demonstrates the least amount of code to write an multi-threads console application:
+
 ```
+#include ".\Sources\ThreadPool.h"
+#include ".\Sources\CriticalSection.h"
+
+CriticalSection _section;
+
+void print(void* data) {
+	CriticalSection::Guard guard(_section);
+	
+	_section.enter();
+	int* value = (int*)data;
+	printf("%d\n", *value);
+	_section.leave();
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	ThreadPool pool(10);
